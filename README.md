@@ -1,7 +1,7 @@
 [![npm version](https://img.shields.io/npm/v/sd-is)](https://www.npmjs.com/package/sd-is)
 [![license](https://img.shields.io/npm/l/sd-is)](https://github.com/sandeepdara-sd/sd-is/blob/main/LICENSE)
 
-# @sd/is ⚡
+# sd-is ⚡
 
 A tiny collection of JavaScript type check utilities that answer:  
 > "Is it... empty? undefined? real? legit?" 🤔
@@ -13,7 +13,7 @@ Made for developers who are tired of writing the same type checks again and agai
 ## 📦 Installation
 
 ```bash
-npm install @sd/is
+npm install sd-is
 ```
 
 ---
