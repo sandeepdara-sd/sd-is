@@ -1,3 +1,6 @@
+[![npm version](https://img.shields.io/npm/v/sd-is)](https://www.npmjs.com/package/sd-is)
+[![license](https://img.shields.io/npm/l/sd-is)](https://github.com/sandeepdara-sd/sd-is/blob/main/LICENSE)
+
 # @sd/is ⚡
 
 A tiny collection of JavaScript type check utilities that answer:  
