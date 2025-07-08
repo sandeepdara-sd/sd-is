@@ -1,0 +1,9 @@
+{
+  "name": "@sd/is",
+  "version": "1.0.0",
+  "description": "Tiny JS utilities to check if your stuff is things (empty object, array, etc.)",
+  "main": "index.js",
+  "keywords": ["utils", "is", "empty-object", "plain-object", "tiny", "javascript", "fun"],
+  "author": "Sandeep Dara",
+  "license": "MIT"
+}
