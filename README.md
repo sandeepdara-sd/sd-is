@@ -6,6 +6,18 @@
 A tiny collection of JavaScript type check utilities that answer:  
 > "Is it... empty? undefined? real? legit?" 🤔
 
+### 🤯 Tired of writing:
+
+```js
+typeof foo !== 'undefined' && Object.keys(obj).length === 0
+```
+
+## ✅ Now just:
+
+```
+if (isNotUndefined(foo) && isEmptyObject(obj)) { /* clean and readable */ }
+```
+
 Made for developers who are tired of writing the same type checks again and again.
 
 ---
