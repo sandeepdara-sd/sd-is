@@ -1,4 +1,3 @@
-cat > README.md <<'EOF'
 # @sd/is ⚡
 
 A tiny collection of JavaScript type check utilities that answer:  
