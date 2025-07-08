@@ -10,7 +10,7 @@ Made for developers who are tired of writing the same type checks again and agai
 
 ## 📦 Installation
 
-\`\`\`bash
+\`\`\`
 npm install @sd/is
 \`\`\`
 
