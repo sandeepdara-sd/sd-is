@@ -10,15 +10,15 @@ Made for developers who are tired of writing the same type checks again and agai
 
 ## 📦 Installation
 
-\`\`\`
+```bash
 npm install @sd/is
-\`\`\`
+```
 
 ---
 
 ## 🧪 Usage
 
-\`\`\`js
+```js
 const {
   isEmptyObject,
   isEmptyArray,
@@ -27,37 +27,38 @@ const {
   isUndefined
 } = require('@sd/is');
 
-console.log(isEmptyObject({}));           // true
-console.log(isEmptyArray([]));            // true
-console.log(isPlainObject({ a: 1 }));     // true
-console.log(isNotUndefined(123));         // true
-console.log(isUndefined(undefined));      // true
-\`\`\`
+console.log(isEmptyObject({}));       // true
+console.log(isEmptyArray([]));        // true
+console.log(isPlainObject({ a: 1 })); // true
+console.log(isNotUndefined(123));     // true
+console.log(isUndefined(undefined));  // true
+```
 
 ---
 
 ## ✅ Functions Included
 
-| Function           | Description                                |
-|--------------------|--------------------------------------------|
-| \`isEmptyObject\`  | Checks if an object is empty \`{}\`        |
-| \`isEmptyArray\`   | Checks if an array is empty \`[]\`         |
-| \`isPlainObject\`  | Checks if it's a plain object              |
-| \`isNotUndefined\` | Checks if a value is **not** \`undefined\` |
-| \`isUndefined\`    | Checks if a value **is** \`undefined\`     |
+| Function         | Description                          |
+|------------------|--------------------------------------|
+| \`isEmptyObject\`  | Checks if an object is empty \`{}\`    |
+| \`isEmptyArray\`   | Checks if an array is empty \`[]\`     |
+| \`isPlainObject\`  | Checks if it's a plain object        |
+| \`isNotUndefined\` | Checks if a value is not \`undefined\` |
+| \`isUndefined\`    | Checks if a value is \`undefined\`     |
 
 ---
 
 ## 🤔 Why?
 
-Because typing \`typeof value !== 'undefined'\` every day is boring.  
+Because typing \`typeof value !== 'undefined'\` every day is boring.
+
 Now just use:
 
-\`\`\`js
+```js
 if (isNotUndefined(foo)) {
   // do cool stuff
 }
-\`\`\`
+```
 
 And flex. 💪
 
