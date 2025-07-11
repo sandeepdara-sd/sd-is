@@ -1,6 +1,6 @@
 {
   "name": "sd-is",
-  "version": "1.2.0",
+  "version": "1.0.4",
   "description": "Tiny JavaScript type check utility functions: isEmptyObject, isUndefined, etc.",
   "main": "index.js",
   "repository": {
@@ -22,8 +22,5 @@
     "type check"
   ],
   "author": "Sandeep Dara",
-  "license": "MIT",
-  "dependencies": {
-    "sd-is": "^1.0.1"
-  }
+  "license": "MIT"
 }
