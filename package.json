@@ -1,6 +1,6 @@
 {
   "name": "sd-is",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Tiny JavaScript type check utility functions: isEmptyObject, isUndefined, etc.",
   "main": "index.js",
   "repository": {
