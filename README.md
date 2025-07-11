@@ -1,5 +1,6 @@
 [![npm version](https://img.shields.io/npm/v/sd-is)](https://www.npmjs.com/package/sd-is)
 [![license](https://img.shields.io/npm/l/sd-is)](https://github.com/sandeepdara-sd/sd-is/blob/main/LICENSE)
+![npm](https://img.shields.io/npm/dw/sd-is?style=flat&color=blue)
 
 # sd-is ⚡  
 A minimal, blazing-fast JavaScript utility library that checks types and structures like:  
