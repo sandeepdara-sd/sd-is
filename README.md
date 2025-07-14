@@ -16,7 +16,7 @@ npm install sd-is
 
 ---
 
-## ✨ What's New in v2.0+
+## ✨ What's New in v1.5
 
 * ✅ Added `assertType(value, expectedType)` – for strict, developer-friendly runtime type checks
 * 🧠 Added `validateAgainst(schema, data)` – schema-based validation with support for enums, nested fields, and custom logic
