@@ -1,4 +1,4 @@
-module.exports = function smartIsEmptyArray(arr) {
+export default function isEmptyArray(arr) {
   const isArray = Array.isArray(arr);
   const isEmpty = isArray && arr.length === 0;
 
@@ -10,4 +10,4 @@ module.exports = function smartIsEmptyArray(arr) {
       : `Array contains ${arr.length} item(s).`,
     fix: () => [],
   };
-};
+}

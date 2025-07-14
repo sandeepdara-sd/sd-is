@@ -1,12 +1,10 @@
-module.exports = function smartIsPlainObject(value) {
-  const isPlain = Object.prototype.toString.call(value) === '[object Object]';
+export default function isPlainObject(obj) {
+  const isPlain = Object.prototype.toString.call(obj) === '[object Object]';
 
   return {
     ok: isPlain,
     verdict: isPlain ? "✅ It's a plain object." : "❌ Not a plain object.",
-    reason: isPlain
-      ? "Passed strict object type check."
-      : `Type was: ${Object.prototype.toString.call(value)}`,
-    fix: () => Object.create(null),
+    reason: isPlain ? "Passed Object check." : "Failed Object prototype check.",
+    fix: () => ({}),
   };
-};
+}

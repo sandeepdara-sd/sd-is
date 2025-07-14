@@ -1,8 +1,23 @@
 {
   "name": "sd-is",
-  "version": "1.0.4",
-  "description": "Tiny JavaScript type check utility functions: isEmptyObject, isUndefined, etc.",
+  "version": "1.0.5",
+  "description": "Tiny JavaScript type check utility functions with smart developer-friendly feedback.",
+  "type": "module",
   "main": "index.js",
+  "exports": {
+    "require": "./index.js",
+    "import": "./index.js"
+  },
+  "keywords": [
+    "utility",
+    "smart check",
+    "type check",
+    "javascript",
+    "boolean",
+    "devtools"
+  ],
+  "author": "Sandeep Dara",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sandeepdara-sd/sd-is.git"
@@ -10,17 +25,5 @@
   "bugs": {
     "url": "https://github.com/sandeepdara-sd/sd-is/issues"
   },
-  "homepage": "https://github.com/sandeepdara-sd/sd-is#readme",
-  "keywords": [
-    "utility",
-    "smart check",
-    "javascript",
-    "devtools",
-    "debug",
-    "fix",
-    "boolean",
-    "type check"
-  ],
-  "author": "Sandeep Dara",
-  "license": "MIT"
+  "homepage": "https://github.com/sandeepdara-sd/sd-is#readme"
 }

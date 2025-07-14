@@ -1,92 +1,128 @@
 [![npm version](https://img.shields.io/npm/v/sd-is)](https://www.npmjs.com/package/sd-is)
 [![license](https://img.shields.io/npm/l/sd-is)](https://github.com/sandeepdara-sd/sd-is/blob/main/LICENSE)
-![npm](https://img.shields.io/npm/dw/sd-is?style=flat&color=blue)
+![npm](https://img.shields.io/npm/dw/sd-is?style=flat\&color=blue)
 
-# sd-is ⚡  
-A minimal, blazing-fast JavaScript utility library that checks types and structures like:  
-> "Is it... empty? undefined? valid? fixable?" 🤔  
+# sd-is ⚡
 
-Now with 💡 **smartCheck** — automatic explanations and fix suggestions for common issues.  
-Not a groundbreaking invention — just a tiny, helpful utility built to make your dev life smoother.  
+A blazing-fast, ultra-light JavaScript utility library to validate, verify, and ensure correctness of your data types and structures.
 
-## 📦 Installation  
-```bash  
-npm install sd-is  
-```  
+> "Is it... a number? empty? valid? fixable?" — `sd-is` has your back.
 
-## ✨ What's New in v2  
-🚀 Added `smartCheck` — a developer-friendly feature that not only checks, but also **explains and suggests a fix** for your values.  
-```js  
-const { smartCheck } = require('sd-is');  
-const result = smartCheck.isEmptyObject({ a: 1 });  
-console.log(result.ok);       // false  
-console.log(result.verdict);  // ❌ Not empty or not a valid object.  
-console.log(result.reason);   // Found 1 key(s): a  
-console.log(result.fix());    // {}  
-```  
+## 📦 Installation
 
-## 🧪 Basic Usage  
-```js  
-const {  
-  isEmptyObject,  
-  isEmptyArray,  
-  isPlainObject,  
-  isNotUndefined,  
-  isUndefined  
-} = require('sd-is');  
+```bash
+npm install sd-is
+```
 
-console.log(isEmptyObject({}));       // true  
-console.log(isEmptyArray([]));        // true  
-console.log(isPlainObject({ a: 1 })); // true  
-console.log(isNotUndefined(123));     // true  
-console.log(isUndefined(undefined));  // true  
-```  
+---
 
-## ✅ Functions Included  
-| Function         | Description                          |  
-|------------------|--------------------------------------|  
-| `isEmptyObject`  | Checks if an object is empty `{}`    |  
-| `isEmptyArray`   | Checks if an array is empty `[]`     |  
-| `isPlainObject`  | Checks if it's a plain object        |  
-| `isNotUndefined` | Checks if a value is not `undefined` |  
-| `isUndefined`    | Checks if a value is `undefined`     |  
+## ✨ What's New in v2.0+
 
-## 🧠 smartCheck Functions  
-All `smartCheck` functions return a helpful result object like:  
-```js  
-{  
-  ok: Boolean,              // true/false result  
-  verdict: String,          // human-friendly status  
-  reason: String,           // explanation of result  
-  fix: Function             // a suggested fix (returns a clean fallback)  
-}  
-```  
+* ✅ Added `assertType(value, expectedType)` – for strict, developer-friendly runtime type checks
+* 🧠 Added `validateAgainst(schema, data)` – schema-based validation with support for enums, nested fields, and custom logic
+* 🔒 Added `strictMode` option to reject extra fields in user input
+* ❌ Clear, emoji-enhanced error messages
+* ➕ More type checkers: `isDate`, `isSymbol`, `isPromise`, `isRegExp`
 
-### Example: `smartCheck.isEmptyArray([1, 2, 3])`  
-```js  
-const result = smartCheck.isEmptyArray([1, 2, 3]);  
-console.log(result.ok);      // false  
-console.log(result.verdict); // ❌ Not empty or not an array.  
-console.log(result.reason);  // Array contains 3 item(s).  
-console.log(result.fix());   // []  
-```  
+---
 
-## 🤔 Why Use `sd-is`?  
-Because typing `typeof value !== 'undefined'` every day is boring.  
-Because checking for `{}` or `[]` every time gets repetitive.  
-Because now, you can check + fix + explain — **all in one line**.  
+## 🔎 Quick Examples
 
-It’s not revolutionary — just something small that saves time and reduces bugs.  
-```js  
-if (smartCheck.isPlainObject([]).ok) {  
-  // It's a plain object, do stuff...  
-} else {  
-  const fallback = smartCheck.isPlainObject([]).fix();  
-}  
-```  
+### ✅ Type Assertion
 
-## 🧑‍💻 Author  
-Made with ❤️ by [Sandeep Dara](https://github.com/sandeepdara-sd)  
+```js
+import assertType from 'sd-is/utils/assertType.js';
 
-## 📜 License  
-MIT  
+assertType('hello', 'string');            // ✅ passes
+assertType(123, 'string');                // ❌ throws: expected 'string', got 'number'
+```
+
+### 📋 Schema Validation
+
+```js
+import defineSchema from 'sd-is/utils/defineSchema.js';
+import validateAgainst from 'sd-is/utils/validateAgainst.js';
+
+const userSchema = defineSchema({
+  name: { type: 'string' },
+  age: { type: 'number', optional: true },
+  role: { enum: ['admin', 'user'] }
+});
+
+const result = validateAgainst(userSchema, { name: 'Tony', role: 'user' });
+console.log(result.ok);       // true
+console.log(result.errors);   // []
+```
+
+---
+
+## 🔨 API: `validateAgainst(schema, data, path?, options?)`
+
+| Option               | Default | Description                                |
+| -------------------- | ------- | ------------------------------------------ |
+| `path`               | `''`    | Internal (for nested use)                  |
+| `options.strictMode` | `false` | Rejects extra fields not defined in schema |
+
+### Schema Field Options
+
+| Key        | Description                                               |                   |
+| ---------- | --------------------------------------------------------- | ----------------- |
+| `type`     | `'string'`, `'number'`, `'array'`, etc. or array of types |                   |
+| `enum`     | Array of allowed values                                   |                   |
+| `optional` | Boolean – if field is optional                            |                   |
+| `custom`   | Function \`(value) => true                                | 'error message'\` |
+
+---
+
+## 🧠 Also Included: `smartCheck`
+
+```js
+const { smartCheck } = require('sd-is');
+const result = smartCheck.isEmptyArray([1, 2]);
+console.log(result.ok);        // false
+console.log(result.reason);    // Array contains 2 item(s)
+console.log(result.fix());     // []
+```
+
+---
+
+## ✅ Utility Functions Available
+
+| Function         | Description                           |
+| ---------------- | ------------------------------------- |
+| `isBoolean`      | Checks if value is `true` or `false`  |
+| `isNumber`       | Checks if value is a number           |
+| `isString`       | Checks if value is a string           |
+| `isUndefined`    | Checks if value is undefined          |
+| `isNotUndefined` | Opposite of `isUndefined`             |
+| `isEmptyArray`   | Checks if value is an empty array     |
+| `isEmptyObject`  | Checks if object has no own keys      |
+| `isPlainObject`  | Checks if it's a plain `{}` object    |
+| `isFunction`     | Checks if value is a function         |
+| `isNull`         | Checks if value is `null`             |
+| `isPromise`      | Checks if value is a Promise          |
+| `isDate`         | Checks if value is a Date object      |
+| `isSymbol`       | Checks if value is a Symbol           |
+| `isRegExp`       | Checks if value is a RegExp           |
+| `listFunctions`  | Lists all available utility functions |
+
+---
+
+## 🤔 Why Use `sd-is`?
+
+Because:
+
+* ✅ You’re tired of writing `typeof x === 'string'` 20x a day
+* 🚫 You want better error messages than "undefined is not a function"
+* 🧠 You care about clean code, smart checks, and data integrity
+* 📦 It’s tiny, tree-shakable, and zero-dependency
+
+---
+
+## 🧑‍💻 Author
+
+Made with ❤️ by [Sandeep Dara](https://github.com/sandeepdara-sd)
+
+## 📜 License
+
+MIT

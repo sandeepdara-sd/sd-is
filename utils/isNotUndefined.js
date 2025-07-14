@@ -1,4 +1,3 @@
-function isNotUndefined(value) {
+export default function isNotUndefined(value) {
   return typeof value !== 'undefined';
 }
-module.exports = isNotUndefined;

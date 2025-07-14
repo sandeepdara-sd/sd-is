@@ -1,8 +1,3 @@
-function isPlainObject(obj) {
-  return (
-    obj !== null &&
-    typeof obj === 'object' &&
-    Object.getPrototypeOf(obj) === Object.prototype
-  );
+export default function isPromise(value) {
+  return !!value && typeof value.then === 'function' && typeof value.catch === 'function';
 }
-module.exports = isPlainObject;

@@ -1,14 +1,13 @@
-module.exports = function smartIsEmptyObject(obj) {
-  const isObject = typeof obj === 'object' && obj !== null && !Array.isArray(obj);
-  const keys = isObject ? Object.keys(obj) : null;
-  const isEmpty = isObject && keys.length === 0;
+export default function isEmptyObject(obj) {
+  const isObj = obj && typeof obj === 'object' && !Array.isArray(obj);
+  const isEmpty = isObj && Object.keys(obj).length === 0;
 
   return {
     ok: isEmpty,
-    verdict: isEmpty ? "✅ It’s an empty object." : "❌ Not empty or not a valid object.",
-    reason: !isObject
-      ? "Input is not a valid object."
-      : `Found ${keys.length} key(s): ${keys.join(', ')}`,
+    verdict: isEmpty ? "✅ This object is empty." : "❌ Not empty or not an object.",
+    reason: !isObj
+      ? "Input is not a plain object."
+      : `Object has ${Object.keys(obj).length} key(s).`,
     fix: () => ({}),
   };
-};
+}

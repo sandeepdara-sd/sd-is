@@ -1,12 +1,10 @@
-module.exports = function smartIsNotUndefined(value, fallback = "default-value") {
-  const isDefined = value !== undefined;
+export default function isNotUndefined(value) {
+  const isDef = typeof value !== 'undefined';
 
   return {
-    ok: isDefined,
-    verdict: isDefined ? "✅ It’s defined." : "❌ It’s undefined.",
-    reason: isDefined
-      ? `Value is: ${JSON.stringify(value)}`
-      : "Value is undefined.",
-    fix: () => fallback,
+    ok: isDef,
+    verdict: isDef ? "✅ It's defined." : "❌ It's undefined.",
+    reason: isDef ? "Has value." : "No value provided.",
+    fix: () => "default-value",
   };
-};
+}
