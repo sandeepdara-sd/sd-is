@@ -1,6 +1,6 @@
 {
   "name": "sd-is",
-  "version": "1.0.7",
+  "version": "1.0.6",
   "description": "Tiny JavaScript type check utility functions with smart developer-friendly feedback.",
   "type": "module",
   "main": "index.js",
