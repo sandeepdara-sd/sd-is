@@ -16,7 +16,7 @@ npm install sd-is
 
 ---
 
-## ✨ What's New in v1.5
+## ✨ What's New in v1.0.6
 
 * ✅ Added `assertType(value, expectedType)` – for strict, developer-friendly runtime type checks
 * 🧠 Added `validateAgainst(schema, data)` – schema-based validation with support for enums, nested fields, and custom logic
@@ -31,7 +31,7 @@ npm install sd-is
 ### ✅ Type Assertion
 
 ```js
-import assertType from 'sd-is/utils/assertType.js';
+import assertType from 'sd-is/assertType.js';
 
 assertType('hello', 'string');            // ✅ passes
 assertType(123, 'string');                // ❌ throws: expected 'string', got 'number'
@@ -40,8 +40,8 @@ assertType(123, 'string');                // ❌ throws: expected 'string', got 
 ### 📋 Schema Validation
 
 ```js
-import defineSchema from 'sd-is/utils/defineSchema.js';
-import validateAgainst from 'sd-is/utils/validateAgainst.js';
+import defineSchema from 'sd-is/defineSchema.js';
+import validateAgainst from 'sd-is/validateAgainst.js';
 
 const userSchema = defineSchema({
   name: { type: 'string' },
