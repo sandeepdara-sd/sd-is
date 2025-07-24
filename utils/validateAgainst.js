@@ -53,7 +53,7 @@ export default function validateAgainst(schema, data, path = '', options = {}) {
       expectedTypes = Array.isArray(descriptor) ? descriptor : [descriptor];
     } else if (typeof descriptor === 'object') {
       // 🔍 Validate descriptor keys
-      const allowedKeys = ['type', 'optional', 'default', 'enum', 'custom'];
+      const allowedKeys = ['type', 'optional', 'required', 'default', 'enum', 'custom'];
       for (const prop in descriptor) {
         if (!allowedKeys.includes(prop)) {
           errors.push(`❌ Field "${fullPath}" → unknown descriptor key "${prop}"`);
@@ -69,7 +69,10 @@ export default function validateAgainst(schema, data, path = '', options = {}) {
         ? descriptor.type
         : [descriptor.type];
 
-      optional = descriptor.optional || false;
+      optional =
+            descriptor.optional === true ||
+            descriptor.required === false; 
+
       allowedEnums = descriptor.enum;
       customValidator = descriptor.custom;
     } else {

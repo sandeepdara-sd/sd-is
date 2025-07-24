@@ -17,10 +17,18 @@ import isDate from './utils/isDate.js';
 import isSymbol from './utils/isSymbol.js';
 import isRegExp from './utils/isRegExp.js';
 
+
+import { defineFlowSchema } from './flow/defineFlowSchema.js';
+import { validateStep } from './flow/validateStep.js';
+import { validateStepAsync } from './flow/validateStepAsync.js';
+
+import { createFlow } from './flow/createFlow.js';
+
+
 function listFunctions() {
   return {
     basic: ['isEmptyArray', 'isEmptyObject', 'isPlainObject', 'isUndefined', 'isNotUndefined', 
-            'isBoolean', 'isFunction', 'isString', 'isNumber', 'isNull','assertType', 'defineSchema', 'validateAgainst', 'isPromise', 'isDate', 'isSymbol', 'isRegExp'],
+            'isBoolean', 'isFunction', 'isString', 'isNumber', 'isNull','assertType', 'defineSchema', 'validateAgainst', 'isPromise', 'isDate', 'isSymbol', 'isRegExp', 'validateStep', 'defineFlowSchema', 'validateStepAsync', 'createFlow'],
     smartCheck: Object.keys(smartCheck).map(name => `smartCheck.${name}`)
   };
 }
@@ -47,7 +55,10 @@ const api = {
   isDate,
   isSymbol,
   isRegExp,
-
+  defineFlowSchema,
+  validateStep,
+  validateStepAsync,
+  createFlow,
 };
 
 if (typeof module !== 'undefined') {
@@ -76,4 +87,8 @@ export {
   isDate,
   isSymbol,
   isRegExp,
+  defineFlowSchema,
+  validateStep,
+  validateStepAsync,
+  createFlow,
 };
